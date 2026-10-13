@@ -1,6 +1,6 @@
 # Artel
 
-**Лёгкий и безопасный маркетплейс агентов и навыков для Claude Code.** Ставите небольшое ядро (12 агентов, 17 навыков, сторож утечек), а потом добавляете только нужные стек-паки: Python, TypeScript, Go, Rust, Java/Kotlin, .NET, PHP, Ruby, Swift, Flutter, C/C++, данные, DevOps, веб, контент.
+**Лёгкий и безопасный маркетплейс агентов и навыков для Claude Code.** Ставите небольшое ядро (12 агентов, 18 навыков, сторож утечек), а потом добавляете только нужные стек-паки: Python, TypeScript, Go, Rust, Java/Kotlin, .NET, PHP, Ruby, Swift, Flutter, C/C++, данные, DevOps, веб, контент.
 
 [English version →](README.md)
 
@@ -81,6 +81,7 @@
 | `/artel:repo-audit` | Аудит чужого репозитория или плагина перед установкой |
 | `/artel:injection-defense` | Защита LLM-приложений, ботов и агентов от prompt injection, чек-лист и тесты |
 | `/artel:make-skill` | Создать свой навык или агента |
+| `/artel:model-router` | Выбирает модель, уровень усилия и глубину проверки перед делегированием сабагенту |
 
 ## Стек-паки
 
@@ -102,7 +103,7 @@
 | `artel-data@artel` | `/artel-data:data` | SQL, схемы, безопасные миграции, Redis |
 | `artel-devops@artel` | `/artel-devops:devops` | Docker, Kubernetes, Terraform, защита Actions |
 | `artel-web@artel` | `/artel-web:landing-page`, `/artel-web:seo-audit`, `/artel-web:telegram-bot` | агенты `web-builder`, `bot-builder` |
-| `artel-content@artel` | `/artel-content:reel-script`, `/artel-content:youtube-script`, `/artel-content:unit-economics` | агенты `content-producer`, `business-analyst` |
+| `artel-content@artel` | `/artel-content:reel-script`, `/artel-content:youtube-script`, `/artel-content:unit-economics`, `/artel-content:humanize-text` | агенты `content-producer`, `business-analyst` |
 
 ## Сторож утечек
 

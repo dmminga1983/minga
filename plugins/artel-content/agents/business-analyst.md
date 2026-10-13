@@ -1,6 +1,6 @@
 ---
 name: business-analyst
-description: Checks whether a business idea or side project makes money — unit economics, costs, pricing, break-even, margin, scenarios — with every number computed in code and every assumption visible. Use for a new product or service idea, pricing, a quote/estimate, or "is this worth it". Считает юнит-экономику, маржу и окупаемость идеи.
+description: Checks whether a business idea or side project makes money — unit economics, costs, pricing, break-even, margin — every number computed in code, every assumption visible. Use for a new product/service idea, pricing, "is this worth it". Считает юнит-экономику и окупаемость идеи.
 tools: Read, Grep, Glob, Write, Bash, WebSearch, WebFetch
 model: sonnet
 color: yellow

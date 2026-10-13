@@ -1,6 +1,6 @@
 ---
 name: reel-script
-description: Writes short vertical video scripts (Reels, Shorts, TikTok, VK Clips) — 3 hook options, second-by-second shot table, on-screen text, voice-over, sound and CTA — optionally in a fixed AI-persona voice. Use when the user wants a reel, short, clip or series idea, or says "сценарий рилса", "идея для ролика", "шортс", "reel script".
+description: Writes short vertical video scripts (Reels, Shorts, TikTok) — hook options, shot table, on-screen text, voice-over and CTA, optionally in a fixed persona voice. Use for a reel, short or clip idea, or "сценарий рилса", "идея для ролика", "шортс", "reel script".
 argument-hint: "[topic, persona, length]"
 ---
 

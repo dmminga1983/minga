@@ -11,7 +11,7 @@
     {
       "name": "artel",
       "source": "./plugins/artel",
-      "description": "Core: 12 agents and 17 skills to plan, build, verify and publish safely, plus a hook that blocks leaking secrets and asks before destructive commands.",
+      "description": "Core: 12 agents and 18 skills to plan, build, verify and publish safely, plus a hook that blocks leaking secrets and asks before destructive commands.",
       "category": "productivity",
       "tags": [
         "agents",
@@ -179,7 +179,7 @@
     {
       "name": "artel-content",
       "source": "./plugins/artel-content",
-      "description": "Content and business pack: video scripts, articles, content plans and unit economics.",
+      "description": "Content and business pack: video scripts, articles, content plans, unit economics, and humanizing text for publishing.",
       "category": "productivity",
       "tags": [
         "content",

@@ -1,6 +1,6 @@
 ---
 name: unit-economics
-description: Calculates whether a product, service or side business pays off — cost per unit, margin, monthly profit in three scenarios, break-even, sensitivity, and the cheapest test of the idea — with all math done in code. Use for pricing, quotes, "окупится ли", "сколько можно заработать", "посчитай маржу", "юнит-экономика", "is this profitable".
+description: Calculates whether a product, service or side business pays off — cost per unit, margin, monthly profit, break-even, sensitivity, cheapest way to test the idea — all math done in code. Use for pricing, "окупится ли", "посчитай маржу", "юнит-экономика", "is this profitable".
 argument-hint: "[product or service, price, volumes]"
 ---
 
