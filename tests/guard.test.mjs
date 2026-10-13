@@ -1,4 +1,4 @@
-// Tests for the Artel guard hook and secret rules. Run: node --test tests/
+// Tests for the Minga guard hook and secret rules. Run: node --test tests/
 // Fake secrets are assembled at runtime so this file itself never contains
 // a string that a secret scanner (or GitHub push protection) would flag.
 
@@ -9,12 +9,12 @@ import { mkdtempSync, writeFileSync, rmSync, mkdirSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { scanLine, sensitiveFileReason, scanPatch, mask } from '../plugins/artel/hooks/scripts/secret-rules.mjs';
-import { parseGit, segments } from '../plugins/artel/hooks/scripts/guard.mjs';
+import { scanLine, sensitiveFileReason, scanPatch, mask } from '../plugins/minga/hooks/scripts/secret-rules.mjs';
+import { parseGit, segments } from '../plugins/minga/hooks/scripts/guard.mjs';
 
 const here = dirname(fileURLToPath(import.meta.url));
-const GUARD = join(here, '..', 'plugins', 'artel', 'hooks', 'scripts', 'guard.mjs');
-const SCAN = join(here, '..', 'plugins', 'artel', 'hooks', 'scripts', 'scan-secrets.mjs');
+const GUARD = join(here, '..', 'plugins', 'minga', 'hooks', 'scripts', 'guard.mjs');
+const SCAN = join(here, '..', 'plugins', 'minga', 'hooks', 'scripts', 'scan-secrets.mjs');
 
 const fake = {
   aws: 'AK' + 'IA' + 'Q'.repeat(16),
@@ -26,7 +26,7 @@ const fake = {
 };
 
 function repo() {
-  const dir = mkdtempSync(join(tmpdir(), 'artel-guard-'));
+  const dir = mkdtempSync(join(tmpdir(), 'minga-guard-'));
   const g = (...args) => execFileSync('git', args, { cwd: dir, stdio: 'pipe' });
   g('init', '-q', '-b', 'main');
   g('config', 'user.email', 't@example.com');
@@ -61,13 +61,13 @@ test('ignores placeholders and env lookups', () => {
 });
 
 test('flags hard-coded generic secrets as medium', () => {
-  const found = scanLine('db_password = "q7Lm2Vx9Rt4Zp1"');  // artel:allow
+  const found = scanLine('db_password = "q7Lm2Vx9Rt4Zp1"');  // minga:allow
   assert.equal(found.length, 1);
   assert.equal(found[0].severity, 'medium');
 });
 
-test('artel:allow suppresses a line', () => {
-  assert.deepEqual(scanLine(`"${fake.aws}" // artel:allow test fixture`), []);
+test('minga:allow suppresses a line', () => {
+  assert.deepEqual(scanLine(`"${fake.aws}" // minga:allow test fixture`), []);
 });
 
 test('sensitive file names', () => {
@@ -192,7 +192,7 @@ test('asks before a force-push to main', () => {
 test('asks (not blocks) on a medium-confidence secret', () => {
   const r = repo();
   try {
-    writeFileSync(join(r.dir, 'db.py'), 'db_password = "q7Lm2Vx9Rt4Zp1"\n');  // artel:allow
+    writeFileSync(join(r.dir, 'db.py'), 'db_password = "q7Lm2Vx9Rt4Zp1"\n');  // minga:allow
     r.g('add', 'db.py');
     const res = runGuard('git commit -m db', r.dir);
     assert.equal(res.code, 0);
@@ -202,19 +202,19 @@ test('asks (not blocks) on a medium-confidence secret', () => {
   }
 });
 
-test('ARTEL_GUARD=off disables the guard', () => {
+test('MINGA_GUARD=off disables the guard', () => {
   const r = repo();
   try {
     writeFileSync(join(r.dir, '.env'), 'X=1\n');
     r.g('add', '.env');
-    assert.equal(runGuard('git commit -m env', r.dir, { ARTEL_GUARD: 'off' }).code, 0);
+    assert.equal(runGuard('git commit -m env', r.dir, { MINGA_GUARD: 'off' }).code, 0);
   } finally {
     r.cleanup();
   }
 });
 
 test('fails open outside a git repository and on bad input', () => {
-  const dir = mkdtempSync(join(tmpdir(), 'artel-nogit-'));
+  const dir = mkdtempSync(join(tmpdir(), 'minga-nogit-'));
   try {
     assert.equal(runGuard('git commit -m x', dir).code, 0);
     const r = spawnSync(process.execPath, [GUARD], { input: 'not json', encoding: 'utf8' });
@@ -231,8 +231,8 @@ test('no false block on ordinary sk- words', () => {
 });
 
 test('medium rules: env-style config, URL credentials', () => {
-  assert.equal(scanLine('DB_PASSWORD=q7Lm2Vx9Rt4Zp1aa')[0]?.severity, 'medium'); // artel:allow
-  assert.equal(scanLine('url = "postgres://admin:S3cretPass99@db.local/app"')[0]?.severity, 'medium'); // artel:allow
+  assert.equal(scanLine('DB_PASSWORD=q7Lm2Vx9Rt4Zp1aa')[0]?.severity, 'medium'); // minga:allow
+  assert.equal(scanLine('url = "postgres://admin:S3cretPass99@db.local/app"')[0]?.severity, 'medium'); // minga:allow
   assert.deepEqual(scanLine('POSTGRES_PASSWORD: your_password_here'), []);
 });
 
@@ -250,7 +250,7 @@ test('follows `cd <repo> &&` before git commit', () => {
   withSecretRepo((r) => {
     writeFileSync(join(r.dir, 'k.js'), `k = "${fake.aws}"\n`);
     r.g('add', 'k.js');
-    const outside = mkdtempSync(join(tmpdir(), 'artel-out-'));
+    const outside = mkdtempSync(join(tmpdir(), 'minga-out-'));
     try {
       assert.equal(runGuard(`cd "${r.dir}" && git commit -m k`, outside).code, 2);
     } finally {

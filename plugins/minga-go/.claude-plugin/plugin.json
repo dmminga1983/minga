@@ -1,0 +1,17 @@
+{
+  "name": "minga-go",
+  "displayName": "Minga · Go",
+  "version": "1.1.0",
+  "description": "Go stack pack: modules, idioms, errors, concurrency, testing, security and review checklist.",
+  "author": {
+    "name": "dmminga1983",
+    "url": "https://github.com/dmminga1983"
+  },
+  "homepage": "https://github.com/dmminga1983/minga",
+  "repository": "https://github.com/dmminga1983/minga",
+  "license": "MIT",
+  "keywords": [
+    "go",
+    "golang"
+  ]
+}

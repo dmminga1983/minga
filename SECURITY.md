@@ -1,6 +1,6 @@
 # Security / Безопасность
 
-## What Artel runs on your machine / Что Artel запускает на компьютере
+## What Minga runs on your machine / Что Minga запускает на компьютере
 
 Only one thing runs automatically: the **guard hook** (`hooks/scripts/guard.mjs`), before Bash/PowerShell commands that contain `git`. It:
 
@@ -9,7 +9,7 @@ Only one thing runs automatically: the **guard hook** (`hooks/scripts/guard.mjs`
 - never writes files, never changes git state, never uses the network, never reads secrets outside the repository;
 - exits with code 2 (block) or prints an `ask` decision; on any internal error it exits 0 and does nothing.
 
-Everything else in Artel is Markdown instructions (agents and skills) that Claude reads. Agents have the tool lists shown in their frontmatter; review agents get no `Write`/`Edit` tools (some can still run commands through Bash).
+Everything else in Minga is Markdown instructions (agents and skills) that Claude reads. Agents have the tool lists shown in their frontmatter; review agents get no `Write`/`Edit` tools (some can still run commands through Bash).
 
 Автоматически запускается только хук-сторож. Он только читает репозиторий, ничего не меняет и не ходит в сеть. Всё остальное — текстовые инструкции.
 
@@ -29,6 +29,6 @@ Keep GitHub **secret scanning** and **push protection** enabled as a second laye
 
 ## Reporting a vulnerability / Сообщить об уязвимости
 
-Please do not open a public issue. Use GitHub's **Report a vulnerability** button on the repository's *Security* tab (private advisory). Include steps to reproduce and the Artel version.
+Please do not open a public issue. Use GitHub's **Report a vulnerability** button on the repository's *Security* tab (private advisory). Include steps to reproduce and the Minga version.
 
 Пожалуйста, не создавайте публичный issue — используйте кнопку **Report a vulnerability** на вкладке *Security* репозитория.

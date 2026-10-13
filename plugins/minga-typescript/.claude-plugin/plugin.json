@@ -1,0 +1,20 @@
+{
+  "name": "minga-typescript",
+  "displayName": "Minga · TypeScript",
+  "version": "1.1.0",
+  "description": "JavaScript/TypeScript stack pack: Node, React, Next.js, Vue, Angular, Svelte — tooling, types, testing, security, bundle and build errors.",
+  "author": {
+    "name": "dmminga1983",
+    "url": "https://github.com/dmminga1983"
+  },
+  "homepage": "https://github.com/dmminga1983/minga",
+  "repository": "https://github.com/dmminga1983/minga",
+  "license": "MIT",
+  "keywords": [
+    "typescript",
+    "javascript",
+    "react",
+    "nextjs",
+    "node"
+  ]
+}

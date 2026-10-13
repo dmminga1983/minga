@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Validates the Artel marketplace. No dependencies. Run: node tools/validate.mjs
+// Validates the Minga marketplace. No dependencies. Run: node tools/validate.mjs
 // Checks: marketplace ↔ plugin manifests, agent and skill frontmatter, local links,
 // hook wiring, context budgets, and that everything is documented in both READMEs.
 
@@ -153,7 +153,7 @@ for (const entry of market.plugins || []) {
     }
   }
 
-  const budget = name === 'artel' ? CORE_DESC_BUDGET : PACK_DESC_BUDGET;
+  const budget = name === 'minga' ? CORE_DESC_BUDGET : PACK_DESC_BUDGET;
   if (inv.descChars > budget) err(`${name}: always-on descriptions are ${inv.descChars} chars (budget ${budget})`);
   if (!inv.agents.length && !inv.skills.length) err(`${name}: plugin has no agents or skills`);
 }
@@ -168,21 +168,21 @@ if (isDir(join(root, 'plugins'))) {
 // ---- docs coverage
 const readme = readFileSync(join(root, 'README.md'), 'utf8');
 const readmeRu = readFileSync(join(root, 'README.ru.md'), 'utf8');
-const start = inventory.find((i) => i.plugin === 'artel');
+const start = inventory.find((i) => i.plugin === 'minga');
 const startText = start ? readFileSync(join(root, start.dir, 'skills/start/SKILL.md'), 'utf8') : '';
 for (const inv of inventory) {
   for (const [file, text] of [['README.md', readme], ['README.ru.md', readmeRu]]) {
-    if (!text.includes(`${inv.plugin}@artel`)) err(`${file}: plugin "${inv.plugin}" has no install line ("${inv.plugin}@artel")`);
+    if (!text.includes(`${inv.plugin}@minga`)) err(`${file}: plugin "${inv.plugin}" has no install line ("${inv.plugin}@minga")`);
     for (const s of inv.skills) {
-      if (inv.plugin === 'artel' && s === 'start') continue;
+      if (inv.plugin === 'minga' && s === 'start') continue;
       if (!text.includes(`/${inv.plugin}:${s}`)) err(`${file}: skill "/${inv.plugin}:${s}" is not documented`);
     }
     for (const a of inv.agents) if (!text.includes(`\`${a}\``)) err(`${file}: agent "${a}" is not documented`);
   }
   for (const s of inv.skills) {
-    if (inv.plugin === 'artel' && s !== 'start' && !startText.includes(`/artel:${s}`)) err(`artel start skill: "/artel:${s}" missing from the map`);
+    if (inv.plugin === 'minga' && s !== 'start' && !startText.includes(`/minga:${s}`)) err(`minga start skill: "/minga:${s}" missing from the map`);
   }
-  if (inv.plugin !== 'artel' && !startText.includes(inv.plugin)) err(`artel start skill: pack "${inv.plugin}" missing from the map`);
+  if (inv.plugin !== 'minga' && !startText.includes(inv.plugin)) err(`minga start skill: pack "${inv.plugin}" missing from the map`);
 }
 
 // ---- report

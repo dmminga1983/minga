@@ -1,0 +1,18 @@
+{
+  "name": "minga-python",
+  "displayName": "Minga · Python",
+  "version": "1.1.0",
+  "description": "Python stack pack: project tooling, idioms, typing, pytest, security pitfalls, build-error playbook and review checklist; Django, FastAPI, Flask notes.",
+  "author": {
+    "name": "dmminga1983",
+    "url": "https://github.com/dmminga1983"
+  },
+  "homepage": "https://github.com/dmminga1983/minga",
+  "repository": "https://github.com/dmminga1983/minga",
+  "license": "MIT",
+  "keywords": [
+    "python",
+    "django",
+    "fastapi"
+  ]
+}

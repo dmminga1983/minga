@@ -1,28 +1,26 @@
-# Artel
+# Minga
 
 **The Claude Code team that plans, builds, verifies and ships your code — and never lets a secret slip out.**
 
-Most agent marketplaces throw hundreds of skills at you and hope a few stick. Artel does the opposite: a tight 12-agent core (~3k tokens, always on) plus 15 optional packs you add only when you need them — one skill per stack, not one per framework. A guard hook blocks leaking API keys, tokens and `.env` files before they ever reach a commit, and a dedicated `verifier` agent double-checks finished work instead of grading its own homework. Free, MIT-licensed, zero network calls, zero telemetry.
+Most agent marketplaces throw hundreds of skills at you and hope a few stick. Minga does the opposite: a tight 12-agent core (~3k tokens, always on) plus 15 optional packs you add only when you need them — one skill per stack, not one per framework. A guard hook blocks leaking API keys, tokens and `.env` files before they ever reach a commit, and a dedicated `verifier` agent double-checks finished work instead of grading its own homework. Free, MIT-licensed, zero network calls, zero telemetry.
 
 [Русская версия →](README.ru.md)
 
 ```
-/plugin marketplace add dmminga1983/artel
-/plugin install artel@artel
-/plugin install artel-python@artel      # add the packs you need
+/plugin marketplace add dmminga1983/minga
+/plugin install minga@minga
+/plugin install minga-python@minga      # add the packs you need
 ```
 
-Then type `/artel:start` — Artel asks what you want to do and points to one next step.
-
-*Artel* (артель) is a Russian word for a cooperative team of craftsmen — people who own their tools and share the work.
+Then type `/minga:start` — Minga asks what you want to do and points to one next step.
 
 ---
 
-## Why Artel
+## Why Minga
 
-Big toolkits such as [ECC](https://github.com/affaan-m/ECC) ship hundreds of skills at once. Claude Code caps the skill listing at about 1% of the context window, so on overflow most descriptions are dropped and skills stop triggering — and the always-on cost is paid in every session. Artel makes different choices:
+Big toolkits such as [ECC](https://github.com/affaan-m/ECC) ship hundreds of skills at once. Claude Code caps the skill listing at about 1% of the context window, so on overflow most descriptions are dropped and skills stop triggering — and the always-on cost is paid in every session. Minga makes different choices:
 
-| | ECC (as measured, Oct 2026) | Artel |
+| | ECC (as measured, Oct 2026) | Minga |
 |---|---|---|
 | Always-on context cost | ~44.8k tokens | **~3.0k tokens** for the core; ~180 per stack pack |
 | Structure | one big plugin, ~68 agents, ~290 skills | core + 15 optional packs; **one skill per stack** with reference files read on demand |
@@ -34,14 +32,14 @@ Big toolkits such as [ECC](https://github.com/affaan-m/ECC) ship hundreds of ski
 
 Token numbers come from `claude plugin details`; reproduce them after installing.
 
-## The Artel loop
+## The Minga loop
 
-1. **Plan** multi-step work first (`/artel:plan-first`).
+1. **Plan** multi-step work first (`/minga:plan-first`).
 2. **Build** in small, checkable steps.
-3. **Verify**: run it, open it, check sources (`/artel:verify-done`).
-4. **Publish safely**: secret scan first, push second (`/artel:secure-publish`).
+3. **Verify**: run it, open it, check sources (`/minga:verify-done`).
+4. **Publish safely**: secret scan first, push second (`/minga:secure-publish`).
 
-## Core (`artel@artel`)
+## Core (`minga@minga`)
 
 ### Agents
 
@@ -66,23 +64,23 @@ An agent is a helper with one role and its own context. Claude delegates automat
 
 | Command | What it does |
 |---|---|
-| `/artel:start` | Picks the agent, skill or pack for your task |
-| `/artel:plan-first` | Plan and definition of done before work starts |
-| `/artel:verify-done` | Verification before reporting "done" |
-| `/artel:code-review` | Review of the current changes |
-| `/artel:tdd` | Test-driven development |
-| `/artel:debug` | Systematic debugging |
-| `/artel:refactor` | Behaviour-preserving refactoring |
-| `/artel:perf` | Profile, fix the bottleneck, re-measure |
-| `/artel:onboard` | Understand an unfamiliar codebase quickly |
-| `/artel:git-workflow` | Branches, commits, pull requests |
-| `/artel:ship` | Pre-release checklist, changelog, tag |
-| `/artel:research` | Research with sources |
-| `/artel:secure-publish` | Secrets, `.gitignore` and Actions check before publishing |
-| `/artel:secrets-setup` | `.env`, `.env.example` and key protection |
-| `/artel:repo-audit` | Audit someone else's repo or plugin before installing it |
-| `/artel:injection-defense` | Protect LLM apps, bots and agents from prompt injection; red-team checklist |
-| `/artel:make-skill` | Create your own skill or agent |
+| `/minga:start` | Picks the agent, skill or pack for your task |
+| `/minga:plan-first` | Plan and definition of done before work starts |
+| `/minga:verify-done` | Verification before reporting "done" |
+| `/minga:code-review` | Review of the current changes |
+| `/minga:tdd` | Test-driven development |
+| `/minga:debug` | Systematic debugging |
+| `/minga:refactor` | Behaviour-preserving refactoring |
+| `/minga:perf` | Profile, fix the bottleneck, re-measure |
+| `/minga:onboard` | Understand an unfamiliar codebase quickly |
+| `/minga:git-workflow` | Branches, commits, pull requests |
+| `/minga:ship` | Pre-release checklist, changelog, tag |
+| `/minga:research` | Research with sources |
+| `/minga:secure-publish` | Secrets, `.gitignore` and Actions check before publishing |
+| `/minga:secrets-setup` | `.env`, `.env.example` and key protection |
+| `/minga:repo-audit` | Audit someone else's repo or plugin before installing it |
+| `/minga:injection-defense` | Protect LLM apps, bots and agents from prompt injection; red-team checklist |
+| `/minga:make-skill` | Create your own skill or agent |
 
 ## Stack packs
 
@@ -90,21 +88,21 @@ Each pack is one skill: how to detect the project, defaults, idioms, errors, tes
 
 | Install | Command | Covers |
 |---|---|---|
-| `artel-python@artel` | `/artel-python:python` | uv/poetry/pip, typing, pytest, Django, FastAPI, Flask |
-| `artel-typescript@artel` | `/artel-typescript:typescript` | Node, React, Next.js, Vue, Angular, Svelte, Express/Nest |
-| `artel-go@artel` | `/artel-go:go` | modules, concurrency, testing, net/http, gRPC |
-| `artel-rust@artel` | `/artel-rust:rust` | cargo, ownership, async, unsafe review, axum |
-| `artel-jvm@artel` | `/artel-jvm:jvm` | Java, Kotlin, Gradle/Maven, Spring Boot, Android |
-| `artel-dotnet@artel` | `/artel-dotnet:dotnet` | C#, ASP.NET Core, EF Core |
-| `artel-php@artel` | `/artel-php:php` | Composer, Laravel, Symfony |
-| `artel-ruby@artel` | `/artel-ruby:ruby` | Bundler, Rails, RSpec |
-| `artel-swift@artel` | `/artel-swift:swift` | SwiftPM/Xcode, SwiftUI, concurrency |
-| `artel-flutter@artel` | `/artel-flutter:flutter` | Dart, state management, widget tests |
-| `artel-cpp@artel` | `/artel-cpp:cpp` | CMake, sanitizers, linker errors |
-| `artel-data@artel` | `/artel-data:data` | SQL, schema design, safe migrations, Redis |
-| `artel-devops@artel` | `/artel-devops:devops` | Docker, Kubernetes, Terraform, Actions hardening |
-| `artel-web@artel` | `/artel-web:landing-page`, `/artel-web:seo-audit`, `/artel-web:telegram-bot` | agents `web-builder`, `bot-builder` |
-| `artel-content@artel` | `/artel-content:reel-script`, `/artel-content:youtube-script`, `/artel-content:unit-economics` | agents `content-producer`, `business-analyst` |
+| `minga-python@minga` | `/minga-python:python` | uv/poetry/pip, typing, pytest, Django, FastAPI, Flask |
+| `minga-typescript@minga` | `/minga-typescript:typescript` | Node, React, Next.js, Vue, Angular, Svelte, Express/Nest |
+| `minga-go@minga` | `/minga-go:go` | modules, concurrency, testing, net/http, gRPC |
+| `minga-rust@minga` | `/minga-rust:rust` | cargo, ownership, async, unsafe review, axum |
+| `minga-jvm@minga` | `/minga-jvm:jvm` | Java, Kotlin, Gradle/Maven, Spring Boot, Android |
+| `minga-dotnet@minga` | `/minga-dotnet:dotnet` | C#, ASP.NET Core, EF Core |
+| `minga-php@minga` | `/minga-php:php` | Composer, Laravel, Symfony |
+| `minga-ruby@minga` | `/minga-ruby:ruby` | Bundler, Rails, RSpec |
+| `minga-swift@minga` | `/minga-swift:swift` | SwiftPM/Xcode, SwiftUI, concurrency |
+| `minga-flutter@minga` | `/minga-flutter:flutter` | Dart, state management, widget tests |
+| `minga-cpp@minga` | `/minga-cpp:cpp` | CMake, sanitizers, linker errors |
+| `minga-data@minga` | `/minga-data:data` | SQL, schema design, safe migrations, Redis |
+| `minga-devops@minga` | `/minga-devops:devops` | Docker, Kubernetes, Terraform, Actions hardening |
+| `minga-web@minga` | `/minga-web:landing-page`, `/minga-web:seo-audit`, `/minga-web:telegram-bot` | agents `web-builder`, `bot-builder` |
+| `minga-content@minga` | `/minga-content:reel-script`, `/minga-content:youtube-script`, `/minga-content:unit-economics` | agents `content-producer`, `business-analyst` |
 
 ## The leak guard
 
@@ -118,9 +116,9 @@ The core installs a hook that runs before every `git commit` and `git push`:
 
 It detects AWS, GitHub, Anthropic, OpenAI, Google, Slack, Stripe and other keys, bot tokens, private keys, and files such as `.env`, `.pem` and `id_rsa`.
 
-- False positive: add the comment `artel:allow` to that line.
-- Disable: start Claude Code with the environment variable `ARTEL_GUARD=off` (or set it in `env` in Claude Code settings). Setting it inside a command deliberately does not work.
-- Scan a whole repo including history: `/artel:secure-publish`, or `node plugins/artel/hooks/scripts/scan-secrets.mjs --history <repo>`.
+- False positive: add the comment `minga:allow` to that line.
+- Disable: start Claude Code with the environment variable `MINGA_GUARD=off` (or set it in `env` in Claude Code settings). Setting it inside a command deliberately does not work.
+- Scan a whole repo including history: `/minga:secure-publish`, or `node plugins/minga/hooks/scripts/scan-secrets.mjs --history <repo>`.
 - It is a safety net, not a guarantee — see [SECURITY.md](SECURITY.md). Also enable GitHub secret scanning with push protection.
 
 Requires **Node.js 18+**. Without Node the guard is silently inactive; everything else works.
@@ -128,8 +126,8 @@ Requires **Node.js 18+**. Without Node the guard is silently inactive; everythin
 ## Uninstall
 
 ```
-/plugin uninstall artel@artel
-/plugin marketplace remove artel
+/plugin uninstall minga@minga
+/plugin marketplace remove minga
 ```
 
 ## In the Claude app (claude.ai)

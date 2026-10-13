@@ -1,26 +1,24 @@
-# Artel
+# Minga
 
 **Лёгкий и безопасный маркетплейс агентов и навыков для Claude Code.** Ставите небольшое ядро (12 агентов, 17 навыков, сторож утечек), а потом добавляете только нужные стек-паки: Python, TypeScript, Go, Rust, Java/Kotlin, .NET, PHP, Ruby, Swift, Flutter, C/C++, данные, DevOps, веб, контент.
 
 [English version →](README.md)
 
 ```
-/plugin marketplace add dmminga1983/artel
-/plugin install artel@artel
-/plugin install artel-python@artel      # добавьте нужные паки
+/plugin marketplace add dmminga1983/minga
+/plugin install minga@minga
+/plugin install minga-python@minga      # добавьте нужные паки
 ```
 
-Затем введите `/artel:start` — Artel спросит, что вы хотите сделать, и подскажет один следующий шаг.
-
-*Артель* — объединение мастеров для общего дела.
+Затем введите `/minga:start` — Minga спросит, что вы хотите сделать, и подскажет один следующий шаг.
 
 ---
 
-## Почему Artel
+## Почему Minga
 
-Большие наборы вроде [ECC](https://github.com/affaan-m/ECC) ставят сотни навыков сразу. Claude Code ограничивает список навыков примерно 1% окна контекста: при переполнении описания отбрасываются, навыки перестают срабатывать, а постоянная «цена» платится в каждой сессии. Artel устроен иначе:
+Большие наборы вроде [ECC](https://github.com/affaan-m/ECC) ставят сотни навыков сразу. Claude Code ограничивает список навыков примерно 1% окна контекста: при переполнении описания отбрасываются, навыки перестают срабатывать, а постоянная «цена» платится в каждой сессии. Minga устроен иначе:
 
-| | ECC (замер, окт. 2026) | Artel |
+| | ECC (замер, окт. 2026) | Minga |
 |---|---|---|
 | Постоянный расход контекста | ~44,8 тыс. токенов | **~3,0 тыс. токенов** на ядро; ~180 на стек-пак |
 | Структура | один большой плагин, ~68 агентов, ~290 навыков | ядро + 15 необязательных паков; **один навык на стек**, справочники читаются по требованию |
@@ -32,14 +30,14 @@
 
 Цифры токенов получены командой `claude plugin details`; их можно воспроизвести после установки.
 
-## Цикл Artel
+## Цикл Minga
 
-1. **Спланировать** многошаговую работу (`/artel:plan-first`).
+1. **Спланировать** многошаговую работу (`/minga:plan-first`).
 2. **Сделать** маленькими проверяемыми шагами.
-3. **Проверить**: запустить, открыть, сверить с источниками (`/artel:verify-done`).
-4. **Безопасно опубликовать**: сначала скан секретов, потом push (`/artel:secure-publish`).
+3. **Проверить**: запустить, открыть, сверить с источниками (`/minga:verify-done`).
+4. **Безопасно опубликовать**: сначала скан секретов, потом push (`/minga:secure-publish`).
 
-## Ядро (`artel@artel`)
+## Ядро (`minga@minga`)
 
 ### Агенты
 
@@ -64,23 +62,23 @@
 
 | Команда | Что делает |
 |---|---|
-| `/artel:start` | Подбирает агента, навык или пак под задачу |
-| `/artel:plan-first` | План и критерий готовности до начала работы |
-| `/artel:verify-done` | Проверка перед тем, как сказать «готово» |
-| `/artel:code-review` | Ревью текущих изменений |
-| `/artel:tdd` | Разработка через тесты |
-| `/artel:debug` | Систематическая отладка |
-| `/artel:refactor` | Рефакторинг без изменения поведения |
-| `/artel:perf` | Профилирование, правка узкого места, повторный замер |
-| `/artel:onboard` | Быстро разобраться в незнакомом проекте |
-| `/artel:git-workflow` | Ветки, коммиты, pull request'ы |
-| `/artel:ship` | Чек-лист релиза, changelog, тег |
-| `/artel:research` | Исследование с источниками |
-| `/artel:secure-publish` | Проверка секретов, `.gitignore` и Actions перед публикацией |
-| `/artel:secrets-setup` | Настройка `.env`, `.env.example` и защиты ключей |
-| `/artel:repo-audit` | Аудит чужого репозитория или плагина перед установкой |
-| `/artel:injection-defense` | Защита LLM-приложений, ботов и агентов от prompt injection, чек-лист и тесты |
-| `/artel:make-skill` | Создать свой навык или агента |
+| `/minga:start` | Подбирает агента, навык или пак под задачу |
+| `/minga:plan-first` | План и критерий готовности до начала работы |
+| `/minga:verify-done` | Проверка перед тем, как сказать «готово» |
+| `/minga:code-review` | Ревью текущих изменений |
+| `/minga:tdd` | Разработка через тесты |
+| `/minga:debug` | Систематическая отладка |
+| `/minga:refactor` | Рефакторинг без изменения поведения |
+| `/minga:perf` | Профилирование, правка узкого места, повторный замер |
+| `/minga:onboard` | Быстро разобраться в незнакомом проекте |
+| `/minga:git-workflow` | Ветки, коммиты, pull request'ы |
+| `/minga:ship` | Чек-лист релиза, changelog, тег |
+| `/minga:research` | Исследование с источниками |
+| `/minga:secure-publish` | Проверка секретов, `.gitignore` и Actions перед публикацией |
+| `/minga:secrets-setup` | Настройка `.env`, `.env.example` и защиты ключей |
+| `/minga:repo-audit` | Аудит чужого репозитория или плагина перед установкой |
+| `/minga:injection-defense` | Защита LLM-приложений, ботов и агентов от prompt injection, чек-лист и тесты |
+| `/minga:make-skill` | Создать свой навык или агента |
 
 ## Стек-паки
 
@@ -88,21 +86,21 @@
 
 | Установка | Команда | Охват |
 |---|---|---|
-| `artel-python@artel` | `/artel-python:python` | uv/poetry/pip, типизация, pytest, Django, FastAPI, Flask |
-| `artel-typescript@artel` | `/artel-typescript:typescript` | Node, React, Next.js, Vue, Angular, Svelte, Express/Nest |
-| `artel-go@artel` | `/artel-go:go` | модули, конкурентность, тесты, net/http, gRPC |
-| `artel-rust@artel` | `/artel-rust:rust` | cargo, владение, async, ревью unsafe, axum |
-| `artel-jvm@artel` | `/artel-jvm:jvm` | Java, Kotlin, Gradle/Maven, Spring Boot, Android |
-| `artel-dotnet@artel` | `/artel-dotnet:dotnet` | C#, ASP.NET Core, EF Core |
-| `artel-php@artel` | `/artel-php:php` | Composer, Laravel, Symfony |
-| `artel-ruby@artel` | `/artel-ruby:ruby` | Bundler, Rails, RSpec |
-| `artel-swift@artel` | `/artel-swift:swift` | SwiftPM/Xcode, SwiftUI, конкурентность |
-| `artel-flutter@artel` | `/artel-flutter:flutter` | Dart, управление состоянием, виджет-тесты |
-| `artel-cpp@artel` | `/artel-cpp:cpp` | CMake, санитайзеры, ошибки линковки |
-| `artel-data@artel` | `/artel-data:data` | SQL, схемы, безопасные миграции, Redis |
-| `artel-devops@artel` | `/artel-devops:devops` | Docker, Kubernetes, Terraform, защита Actions |
-| `artel-web@artel` | `/artel-web:landing-page`, `/artel-web:seo-audit`, `/artel-web:telegram-bot` | агенты `web-builder`, `bot-builder` |
-| `artel-content@artel` | `/artel-content:reel-script`, `/artel-content:youtube-script`, `/artel-content:unit-economics` | агенты `content-producer`, `business-analyst` |
+| `minga-python@minga` | `/minga-python:python` | uv/poetry/pip, типизация, pytest, Django, FastAPI, Flask |
+| `minga-typescript@minga` | `/minga-typescript:typescript` | Node, React, Next.js, Vue, Angular, Svelte, Express/Nest |
+| `minga-go@minga` | `/minga-go:go` | модули, конкурентность, тесты, net/http, gRPC |
+| `minga-rust@minga` | `/minga-rust:rust` | cargo, владение, async, ревью unsafe, axum |
+| `minga-jvm@minga` | `/minga-jvm:jvm` | Java, Kotlin, Gradle/Maven, Spring Boot, Android |
+| `minga-dotnet@minga` | `/minga-dotnet:dotnet` | C#, ASP.NET Core, EF Core |
+| `minga-php@minga` | `/minga-php:php` | Composer, Laravel, Symfony |
+| `minga-ruby@minga` | `/minga-ruby:ruby` | Bundler, Rails, RSpec |
+| `minga-swift@minga` | `/minga-swift:swift` | SwiftPM/Xcode, SwiftUI, конкурентность |
+| `minga-flutter@minga` | `/minga-flutter:flutter` | Dart, управление состоянием, виджет-тесты |
+| `minga-cpp@minga` | `/minga-cpp:cpp` | CMake, санитайзеры, ошибки линковки |
+| `minga-data@minga` | `/minga-data:data` | SQL, схемы, безопасные миграции, Redis |
+| `minga-devops@minga` | `/minga-devops:devops` | Docker, Kubernetes, Terraform, защита Actions |
+| `minga-web@minga` | `/minga-web:landing-page`, `/minga-web:seo-audit`, `/minga-web:telegram-bot` | агенты `web-builder`, `bot-builder` |
+| `minga-content@minga` | `/minga-content:reel-script`, `/minga-content:youtube-script`, `/minga-content:unit-economics` | агенты `content-producer`, `business-analyst` |
 
 ## Сторож утечек
 
@@ -116,9 +114,9 @@
 
 Находит ключи AWS, GitHub, Anthropic, OpenAI, Google, Slack, Stripe и другие, токены ботов, приватные ключи и файлы `.env`, `.pem`, `id_rsa`.
 
-- Ложное срабатывание: добавьте в строку комментарий `artel:allow`.
-- Отключить: запустите Claude Code с переменной окружения `ARTEL_GUARD=off` (или задайте её в `env` настроек Claude Code). Указать её внутри команды сознательно не работает.
-- Проверить весь репозиторий с историей: `/artel:secure-publish` или `node plugins/artel/hooks/scripts/scan-secrets.mjs --history <репозиторий>`.
+- Ложное срабатывание: добавьте в строку комментарий `minga:allow`.
+- Отключить: запустите Claude Code с переменной окружения `MINGA_GUARD=off` (или задайте её в `env` настроек Claude Code). Указать её внутри команды сознательно не работает.
+- Проверить весь репозиторий с историей: `/minga:secure-publish` или `node plugins/minga/hooks/scripts/scan-secrets.mjs --history <репозиторий>`.
 - Это страховка, а не гарантия — см. [SECURITY.md](SECURITY.md). Включите также secret scanning и push protection на GitHub.
 
 Нужен **Node.js 18+**. Без Node сторож молча неактивен, остальное работает.
@@ -126,8 +124,8 @@
 ## Удаление
 
 ```
-/plugin uninstall artel@artel
-/plugin marketplace remove artel
+/plugin uninstall minga@minga
+/plugin marketplace remove minga
 ```
 
 ## В приложении Claude (claude.ai)

@@ -1,0 +1,22 @@
+{
+  "name": "minga",
+  "displayName": "Minga",
+  "version": "1.1.0",
+  "description": "Core: 12 agents and 17 skills to plan, build, verify and publish safely, plus a hook that blocks leaking secrets and asks before destructive commands.",
+  "author": {
+    "name": "dmminga1983",
+    "url": "https://github.com/dmminga1983"
+  },
+  "homepage": "https://github.com/dmminga1983/minga",
+  "repository": "https://github.com/dmminga1983/minga",
+  "license": "MIT",
+  "keywords": [
+    "agents",
+    "skills",
+    "security",
+    "workflow"
+  ],
+  "experimental": {
+    "evals": "evals"
+  }
+}

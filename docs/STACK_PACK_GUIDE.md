@@ -1,10 +1,10 @@
-# Writing an Artel stack pack
+# Writing an Minga stack pack
 
-A stack pack teaches Claude one ecosystem well. It is a plugin under `plugins/artel-<stack>/` that holds **one skill** named after the stack (for example `plugins/artel-python/skills/python/SKILL.md`, invoked as `/artel-python:python`), plus optional reference files next to it. Core agents (`code-reviewer`, `build-fixer`, `test-engineer`, `debugger`, `security-auditor`) load the pack's skill when they detect the stack.
+A stack pack teaches Claude one ecosystem well. It is a plugin under `plugins/minga-<stack>/` that holds **one skill** named after the stack (for example `plugins/minga-python/skills/python/SKILL.md`, invoked as `/minga-python:python`), plus optional reference files next to it. Core agents (`code-reviewer`, `build-fixer`, `test-engineer`, `debugger`, `security-auditor`) load the pack's skill when they detect the stack.
 
 ## Why one skill per stack
 
-ECC-style toolkits ship a separate skill for every framework × concern (`django-tdd`, `django-security`, `django-verification`, …). Each skill adds its description to the always-on listing, and Claude Code caps that listing at about 1% of the context window — so with hundreds of skills most descriptions are dropped and the skills stop triggering. Artel keeps **one short description per stack** and puts depth in reference files that cost nothing until they are read.
+ECC-style toolkits ship a separate skill for every framework × concern (`django-tdd`, `django-security`, `django-verification`, …). Each skill adds its description to the always-on listing, and Claude Code caps that listing at about 1% of the context window — so with hundreds of skills most descriptions are dropped and the skills stop triggering. Minga keeps **one short description per stack** and puts depth in reference files that cost nothing until they are read.
 
 ## Frontmatter
 
@@ -44,4 +44,4 @@ Put long material in files next to `SKILL.md` and link them with relative links,
 - No `$` followed by a digit inside `SKILL.md` (Claude Code treats `$1` as an argument placeholder). Put shell examples with positional parameters in a reference file, or escape as `\$1`.
 - No secrets or realistic-looking tokens, even fake ones. No personal data, company names or sponsor/affiliate links.
 - Commands must be copy-pasteable and safe; destructive ones are labelled.
-- Run `node tools/validate.mjs` and `claude plugin validate plugins/artel-<stack>/skills --strict` before opening a PR.
+- Run `node tools/validate.mjs` and `claude plugin validate plugins/minga-<stack>/skills --strict` before opening a PR.

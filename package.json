@@ -1,8 +1,8 @@
 {
-  "name": "artel",
+  "name": "minga",
   "version": "0.1.0",
   "private": true,
-  "description": "Artel — a bilingual team of agents and skills for Claude Code.",
+  "description": "Minga — a bilingual team of agents and skills for Claude Code.",
   "type": "module",
   "license": "MIT",
   "engines": {
@@ -11,7 +11,7 @@
   "scripts": {
     "test": "node --test",
     "validate": "node tools/validate.mjs",
-    "scan": "node plugins/artel/hooks/scripts/scan-secrets.mjs --history",
-    "check": "node tools/validate.mjs && node --test && node plugins/artel/hooks/scripts/scan-secrets.mjs --history"
+    "scan": "node plugins/minga/hooks/scripts/scan-secrets.mjs --history",
+    "check": "node tools/validate.mjs && node --test && node plugins/minga/hooks/scripts/scan-secrets.mjs --history"
   }
 }
