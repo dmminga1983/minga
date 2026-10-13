@@ -83,7 +83,6 @@ An agent is a helper with one role and its own context. Claude delegates automat
 | `/artel:repo-audit` | Audit someone else's repo or plugin before installing it |
 | `/artel:injection-defense` | Protect LLM apps, bots and agents from prompt injection; red-team checklist |
 | `/artel:make-skill` | Create your own skill or agent |
-| `/artel:model-router` | Picks model, effort and verification depth before delegating to a subagent |
 
 ## Stack packs
 
@@ -105,7 +104,7 @@ Each pack is one skill: how to detect the project, defaults, idioms, errors, tes
 | `artel-data@artel` | `/artel-data:data` | SQL, schema design, safe migrations, Redis |
 | `artel-devops@artel` | `/artel-devops:devops` | Docker, Kubernetes, Terraform, Actions hardening |
 | `artel-web@artel` | `/artel-web:landing-page`, `/artel-web:seo-audit`, `/artel-web:telegram-bot` | agents `web-builder`, `bot-builder` |
-| `artel-content@artel` | `/artel-content:reel-script`, `/artel-content:youtube-script`, `/artel-content:unit-economics`, `/artel-content:humanize-text` | agents `content-producer`, `business-analyst` |
+| `artel-content@artel` | `/artel-content:reel-script`, `/artel-content:youtube-script`, `/artel-content:unit-economics` | agents `content-producer`, `business-analyst` |
 
 ## The leak guard
 

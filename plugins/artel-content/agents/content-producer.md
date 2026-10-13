@@ -1,6 +1,6 @@
 ---
 name: content-producer
-description: Plans and writes video and social content — Reels/Shorts/TikTok and YouTube scripts, hooks, storyboards, captions, voice-over text, content calendars, consistent persona voices. Use for any video idea, script or social post. Сценарии рилсов и YouTube, хуки, контент-план.
+description: Plans and writes video and social content — Reels/Shorts/TikTok scripts, YouTube video scripts, hooks, storyboards, captions, voice-over text, content calendars, and consistent AI-persona voices. Use for any video idea, script, series plan or social post. Сценарии рилсов и YouTube, хуки, раскадровки, контент-план.
 tools: Read, Grep, Glob, Write, WebSearch, WebFetch
 model: sonnet
 color: pink

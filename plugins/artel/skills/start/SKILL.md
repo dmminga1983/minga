@@ -30,7 +30,6 @@ Reply in the user's language. Ask what they want to get done, then point to **on
 | Research with sources / Исследование | `/artel:research` | `researcher` |
 | README and docs / Документация | — | `docs-writer` |
 | Make your own skill / Свой skill | `/artel:make-skill` | — |
-| Route work to a subagent / Выбрать модель для сабагента | `/artel:model-router` | — |
 
 ## Stack packs (install only what you use)
 
@@ -52,7 +51,7 @@ Core agents load the matching pack automatically when it is installed. Install w
 | `artel-data` | `/artel-data:data` — SQL, migrations, Redis |
 | `artel-devops` | `/artel-devops:devops` — Docker, Kubernetes, Terraform, CI |
 | `artel-web` | `/artel-web:landing-page`, `/artel-web:seo-audit`, `/artel-web:telegram-bot` (agents `web-builder`, `bot-builder`) |
-| `artel-content` | `/artel-content:reel-script`, `/artel-content:youtube-script`, `/artel-content:unit-economics`, `/artel-content:humanize-text` (agents `content-producer`, `business-analyst`) |
+| `artel-content` | `/artel-content:reel-script`, `/artel-content:youtube-script`, `/artel-content:unit-economics` (agents `content-producer`, `business-analyst`) |
 
 If the needed pack is not installed, say so and give the install line.
 

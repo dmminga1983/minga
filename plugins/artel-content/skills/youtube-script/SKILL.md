@@ -1,6 +1,6 @@
 ---
 name: youtube-script
-description: Plans and writes a YouTube video — title and thumbnail options, retention intro, chapters, full script with B-roll notes, timestamped description, pinned comment. Use for a YouTube video or long-form script, or "сценарий для ютуба", "видео на канал".
+description: Plans and writes a YouTube video — title and thumbnail options, a retention-focused intro, chapters, full script with B-roll notes, description with timestamps, and pinned comment. Use when the user wants a YouTube video, a long-form script, or says "сценарий для ютуба", "видео на канал", "YouTube script".
 argument-hint: "[topic, length, channel style]"
 ---
 

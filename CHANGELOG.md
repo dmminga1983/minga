@@ -1,10 +1,5 @@
 # Changelog
 
-## 1.1.0 — 2026-10-13
-
-- Core `artel`: new `/artel:model-router` skill — before delegating to a subagent (Task/Agent), picks model, effort and verification depth by complexity and risk, and logs outcomes to refine its own thresholds. Core is now 12 agents and 18 skills.
-- `artel-content`: new `/artel-content:humanize-text` skill — final polish pass that strips "AI smell" from finished text (captions, tags, reels, lyrics, tables/reports, spoken scripts) before publishing.
-
 ## 1.0.0 — 2026-10-08
 
 Artel becomes a universal marketplace.
