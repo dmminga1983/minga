@@ -70,6 +70,10 @@ const PLACEHOLDER_HINTS = [
 ];
 
 const ALLOW_MARKER = 'minga:allow';
+// Pre-rename marker (the project was called "artel"). Kept so a full-history
+// secret scan doesn't flag old, already-reviewed test fixtures that still
+// carry the old comment in past commits — git history itself is immutable.
+const LEGACY_ALLOW_MARKER = 'artel:allow';
 
 const SAFE_ENV_SUFFIXES = new Set(['example', 'sample', 'template', 'dist', 'defaults']);
 
@@ -106,7 +110,7 @@ function looksLikePlaceholder(value) {
  * severity: "high" blocks, "medium" asks.
  */
 export function scanLine(line) {
-  if (line.includes(ALLOW_MARKER)) return [];
+  if (line.includes(ALLOW_MARKER) || line.includes(LEGACY_ALLOW_MARKER)) return [];
   const findings = [];
   for (const rule of RULES) {
     rule.re.lastIndex = 0;
