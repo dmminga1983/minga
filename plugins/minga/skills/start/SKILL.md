@@ -52,6 +52,7 @@ Core agents load the matching pack automatically when it is installed. Install w
 | `minga-devops` | `/minga-devops:devops` — Docker, Kubernetes, Terraform, CI |
 | `minga-web` | `/minga-web:landing-page`, `/minga-web:seo-audit`, `/minga-web:telegram-bot` (agents `web-builder`, `bot-builder`) |
 | `minga-content` | `/minga-content:reel-script`, `/minga-content:youtube-script`, `/minga-content:unit-economics` (agents `content-producer`, `business-analyst`) |
+| `minga-graph` | `/minga-graph:graph`: map a codebase, trace connections, check what breaks before a change (needs the minga-graph CLI) |
 
 If the needed pack is not installed, say so and give the install line.
 
