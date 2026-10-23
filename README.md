@@ -2,7 +2,7 @@
 
 **The Claude Code team that plans, builds, verifies and ships your code — and never lets a secret slip out.**
 
-Most agent marketplaces throw hundreds of skills at you and hope a few stick. Minga does the opposite: a tight 12-agent core (~3k tokens, always on) plus 15 optional packs you add only when you need them — one skill per stack, not one per framework. A guard hook blocks leaking API keys, tokens and `.env` files before they ever reach a commit, and a dedicated `verifier` agent double-checks finished work instead of grading its own homework. Free, MIT-licensed, zero network calls, zero telemetry.
+Most agent marketplaces throw hundreds of skills at you and hope a few stick. Minga does the opposite: a tight 12-agent core (~3k tokens, always on) plus 16 optional packs you add only when you need them — one skill per stack, not one per framework. A guard hook blocks leaking API keys, tokens and `.env` files before they ever reach a commit, and a dedicated `verifier` agent double-checks finished work instead of grading its own homework. Free, MIT-licensed, zero network calls, zero telemetry.
 
 [Русская версия →](README.ru.md)
 
@@ -23,7 +23,7 @@ Big toolkits such as [ECC](https://github.com/affaan-m/ECC) ship hundreds of ski
 | | ECC (as measured, Oct 2026) | Minga |
 |---|---|---|
 | Always-on context cost | ~44.8k tokens | **~3.0k tokens** for the core; ~180 per stack pack |
-| Structure | one big plugin, ~68 agents, ~290 skills | core + 15 optional packs; **one skill per stack** with reference files read on demand |
+| Structure | one big plugin, ~68 agents, ~290 skills | core + 16 optional packs; **one skill per stack** with reference files read on demand |
 | Security | configuration scanner | **a guard that is on from install**: blocks commits and pushes containing keys, tokens or `.env`/key files |
 | Independent checking | — | a `verifier` agent that never grades its own work |
 | Languages | English | agents reply in the user's language; skills trigger in Russian and English |
@@ -103,6 +103,7 @@ Each pack is one skill: how to detect the project, defaults, idioms, errors, tes
 | `minga-devops@minga` | `/minga-devops:devops` | Docker, Kubernetes, Terraform, Actions hardening |
 | `minga-web@minga` | `/minga-web:landing-page`, `/minga-web:seo-audit`, `/minga-web:telegram-bot` | agents `web-builder`, `bot-builder` |
 | `minga-content@minga` | `/minga-content:reel-script`, `/minga-content:youtube-script`, `/minga-content:unit-economics` | agents `content-producer`, `business-analyst` |
+| `minga-graph@minga` | `/minga-graph:graph` | code knowledge graph via [minga-graph](https://github.com/dmminga1983/minga-graph): query, explain, path, impact, diff, secrets |
 
 ## The leak guard
 

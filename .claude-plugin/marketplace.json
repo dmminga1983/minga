@@ -187,6 +187,17 @@
         "writing",
         "business"
       ]
+    },
+    {
+      "name": "minga-graph",
+      "source": "./plugins/minga-graph",
+      "description": "Code knowledge graph: query, explain, path and impact over a local, explainable graph of your codebase (minga-graph CLI). No network, no telemetry.",
+      "category": "development",
+      "tags": [
+        "knowledge-graph",
+        "code-analysis",
+        "impact-analysis"
+      ]
     }
   ]
 }

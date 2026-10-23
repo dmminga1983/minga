@@ -1,0 +1,18 @@
+{
+  "name": "minga-graph",
+  "displayName": "Minga · Graph",
+  "version": "1.2.0",
+  "description": "Code knowledge graph: query, explain, path and impact over a local graph of your codebase built by minga-graph. No network, no telemetry.",
+  "author": {
+    "name": "dmminga1983",
+    "url": "https://github.com/dmminga1983"
+  },
+  "homepage": "https://github.com/dmminga1983/minga-graph",
+  "repository": "https://github.com/dmminga1983/minga",
+  "license": "MIT",
+  "keywords": [
+    "knowledge-graph",
+    "code-analysis",
+    "impact-analysis"
+  ]
+}

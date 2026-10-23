@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.0 — 2026-10-24
+
+- New pack `minga-graph`: one skill (`/minga-graph:graph`) that uses the local [minga-graph](https://github.com/dmminga1983/minga-graph) CLI to map a codebase, trace connections and check what breaks before a change. No network, no telemetry.
+
 ## 1.1.0 — 2026-10-13
 
 Project renamed: Artel → Minga. All plugin names, commands (`/artel:...` → `/minga:...`), directories (`plugins/artel*` → `plugins/minga*`), the guard's env var (`ARTEL_GUARD` → `MINGA_GUARD`) and false-positive marker (`artel:allow` → `minga:allow`) were updated accordingly. No functional change. The repository itself was renamed on GitHub; old `artel` links redirect automatically.
