@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.0 (2026-10-28)
+
+The marketplace now lists four packs that live in their own repositories: `minga-arena`, `minga-reels`, `minga-youtube` and `minga-replica`. They install as `<name>@minga`. `tools/validate.mjs` accepts GitHub sources and checks that every such pack is documented in both READMEs and in the start skill's map.
+
 ## 1.1.0 — 2026-10-13
 
 Project renamed: Artel → Minga. All plugin names, commands (`/artel:...` → `/minga:...`), directories (`plugins/artel*` → `plugins/minga*`), the guard's env var (`ARTEL_GUARD` → `MINGA_GUARD`) and false-positive marker (`artel:allow` → `minga:allow`) were updated accordingly. No functional change. The repository itself was renamed on GitHub; old `artel` links redirect automatically.

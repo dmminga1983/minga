@@ -102,6 +102,21 @@
 | `minga-web@minga` | `/minga-web:landing-page`, `/minga-web:seo-audit`, `/minga-web:telegram-bot` | агенты `web-builder`, `bot-builder` |
 | `minga-content@minga` | `/minga-content:reel-script`, `/minga-content:youtube-script`, `/minga-content:unit-economics` | агенты `content-producer`, `business-analyst` |
 
+## Наборы в отдельных репозиториях
+
+Крупные наборы живут в своих репозиториях, со своими тестами и релизами. Маркетплейс Minga ссылается на них, поэтому ставятся они так же, как остальные.
+
+| Установка | Что делает | Репозиторий |
+|---|---|---|
+| `minga-arena@minga` | Турнир субагентов, когда ответ недостаточно хорош: 16 агентов, атака, защита, судья, остаётся один ответ | [minga-arena](https://github.com/dmminga1983/minga-arena) |
+| `minga-reels@minga` | Instagram Reels и YouTube Shorts на русском и английском: персонажи, оценка хуков, сценарии с таймингом, проверка подписей, разбор статистики | [minga-reels](https://github.com/dmminga1983/minga-reels) |
+| `minga-youtube@minga` | Длинные видео на YouTube: сценарии, название и превью, монтажный лист, главы, удержание, SEO | [minga-youtube](https://github.com/dmminga1983/minga-youtube) |
+| `minga-replica@minga` | Воссоздать приложение по принципу чистой комнаты и запустить как своё, для России и мира, App Store, Google Play и RuStore | [minga-replica](https://github.com/dmminga1983/minga-replica) |
+
+```
+/plugin install minga-reels@minga
+```
+
 ## Сторож утечек
 
 Ядро ставит хук, который срабатывает перед каждым `git commit` и `git push`:
