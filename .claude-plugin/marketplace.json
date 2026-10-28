@@ -187,6 +187,63 @@
         "writing",
         "business"
       ]
+    },
+    {
+      "name": "minga-arena",
+      "source": {
+        "source": "github",
+        "repo": "dmminga1983/minga-arena"
+      },
+      "description": "A tournament of sub-agents for answers that are not good enough: same task, different strategy cards, attack, defend, judge, one answer left. 16 agents by default.",
+      "category": "productivity",
+      "tags": [
+        "subagents",
+        "tournament",
+        "arena"
+      ]
+    },
+    {
+      "name": "minga-reels",
+      "source": {
+        "source": "github",
+        "repo": "dmminga1983/minga-reels"
+      },
+      "description": "Instagram Reels and YouTube Shorts in Russian and English: personas and AI characters, scored hooks, timed scripts, caption checks, research, plans, audits.",
+      "category": "productivity",
+      "tags": [
+        "instagram",
+        "reels",
+        "shorts",
+        "content"
+      ]
+    },
+    {
+      "name": "minga-youtube",
+      "source": {
+        "source": "github",
+        "repo": "dmminga1983/minga-youtube"
+      },
+      "description": "Long-form YouTube in Russian and English: channel voice, timed scripts, title and thumbnail checks, edit lists, chapters, retention, SEO, audits.",
+      "category": "productivity",
+      "tags": [
+        "youtube",
+        "video",
+        "content"
+      ]
+    },
+    {
+      "name": "minga-replica",
+      "source": {
+        "source": "github",
+        "repo": "dmminga1983/minga-replica"
+      },
+      "description": "Rebuild any app clean-room style and launch it as your own, with region profiles for Russia and global and listings for App Store, Google Play and RuStore.",
+      "category": "productivity",
+      "tags": [
+        "app-clone",
+        "saas",
+        "rustore"
+      ]
     }
   ]
 }
