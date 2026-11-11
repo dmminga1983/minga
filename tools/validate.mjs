@@ -72,12 +72,23 @@ if (!market) process.exit(1);
 if (!market.owner?.name) err('marketplace.json: owner.name is required');
 const listed = new Set();
 const inventory = []; // { plugin, agents: [], skills: [], descChars }
+const external = []; // plugins kept in their own repositories
 
 for (const entry of market.plugins || []) {
   const name = entry.name;
   if (!NAME_RE.test(name || '')) err(`marketplace.json: bad plugin name "${name}"`);
   if (listed.has(name)) err(`marketplace.json: duplicate plugin "${name}"`);
   listed.add(name);
+  if (entry.source && typeof entry.source === 'object') {
+    // A plugin that lives in its own repository: check the reference, document it like the rest.
+    const src = entry.source;
+    if (src.source !== 'github' || !/^[\w.-]+\/[\w.-]+$/.test(src.repo || '')) {
+      err(`marketplace.json: external source for "${name}" must be {"source": "github", "repo": "owner/repo"}`);
+    }
+    if (src.repo && src.repo.split('/')[1] !== name) warn(`marketplace.json: "${name}" points to ${src.repo}, a repository with a different name`);
+    external.push(name);
+    continue;
+  }
   const dir = (entry.source || '').replace(/^\.\//, '');
   if (!dir || !isDir(join(root, dir))) {
     err(`marketplace.json: source for "${name}" not found: ${entry.source}`);
@@ -185,10 +196,17 @@ for (const inv of inventory) {
   if (inv.plugin !== 'minga' && !startText.includes(inv.plugin)) err(`minga start skill: pack "${inv.plugin}" missing from the map`);
 }
 
+for (const name of external) {
+  for (const [file, text] of [['README.md', readme], ['README.ru.md', readmeRu]]) {
+    if (!text.includes(`${name}@minga`)) err(`${file}: plugin "${name}" has no install line ("${name}@minga")`);
+  }
+  if (!startText.includes(name)) err(`minga start skill: pack "${name}" missing from the map`);
+}
+
 // ---- report
 for (const w of warnings) console.log(`warning: ${w}`);
 for (const e of errors) console.log(`error: ${e}`);
 const totals = inventory.reduce((a, i) => ({ agents: a.agents + i.agents.length, skills: a.skills + i.skills.length }), { agents: 0, skills: 0 });
-console.log(`\n${inventory.length} plugins, ${totals.agents} agents, ${totals.skills} skills — ${errors.length} errors, ${warnings.length} warnings`);
+console.log(`\n${inventory.length + external.length} plugins (${external.length} in their own repositories), ${totals.agents} agents, ${totals.skills} skills — ${errors.length} errors, ${warnings.length} warnings`);
 for (const i of inventory) console.log(`  ${i.plugin.padEnd(18)} agents ${String(i.agents.length).padStart(2)}  skills ${String(i.skills.length).padStart(2)}  always-on desc ${i.descChars} chars`);
 process.exit(errors.length ? 1 : 0);

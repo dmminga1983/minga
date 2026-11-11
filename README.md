@@ -104,6 +104,19 @@ Each pack is one skill: how to detect the project, defaults, idioms, errors, tes
 | `minga-web@minga` | `/minga-web:landing-page`, `/minga-web:seo-audit`, `/minga-web:telegram-bot` | agents `web-builder`, `bot-builder` |
 | `minga-content@minga` | `/minga-content:reel-script`, `/minga-content:youtube-script`, `/minga-content:unit-economics` | agents `content-producer`, `business-analyst` |
 
+## Packs in their own repositories
+
+Larger packs live in separate repositories with their own tests and releases. The Minga marketplace lists them, so they install the same way.
+
+| Install | What it does | Repository |
+|---|---|---|
+| `minga-arena@minga` | A tournament of sub-agents for answers that are not good enough: 16 agents, attack, defend, judge, one answer left | [minga-arena](https://github.com/dmminga1983/minga-arena) |
+| `minga-replica@minga` | Rebuild an app clean-room style and launch it as your own, for Russia and global, App Store, Google Play and RuStore | [minga-replica](https://github.com/dmminga1983/minga-replica) |
+
+```
+/plugin install minga-arena@minga
+```
+
 ## The leak guard
 
 The core installs a hook that runs before every `git commit` and `git push`:
