@@ -111,12 +111,10 @@ Larger packs live in separate repositories with their own tests and releases. Th
 | Install | What it does | Repository |
 |---|---|---|
 | `minga-arena@minga` | A tournament of sub-agents for answers that are not good enough: 16 agents, attack, defend, judge, one answer left | [minga-arena](https://github.com/dmminga1983/minga-arena) |
-| `minga-reels@minga` | Instagram Reels and YouTube Shorts in Russian and English: personas, scored hooks, timed scripts, caption checks, audits | [minga-reels](https://github.com/dmminga1983/minga-reels) |
-| `minga-youtube@minga` | Long-form YouTube: scripts, title and thumbnail, edit lists, chapters, retention, SEO | [minga-youtube](https://github.com/dmminga1983/minga-youtube) |
 | `minga-replica@minga` | Rebuild an app clean-room style and launch it as your own, for Russia and global, App Store, Google Play and RuStore | [minga-replica](https://github.com/dmminga1983/minga-replica) |
 
 ```
-/plugin install minga-reels@minga
+/plugin install minga-arena@minga
 ```
 
 ## The leak guard

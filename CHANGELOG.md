@@ -2,7 +2,7 @@
 
 ## 1.2.0 (2026-10-28)
 
-The marketplace now lists four packs that live in their own repositories: `minga-arena`, `minga-reels`, `minga-youtube` and `minga-replica`. They install as `<name>@minga`. `tools/validate.mjs` accepts GitHub sources and checks that every such pack is documented in both READMEs and in the start skill's map.
+The marketplace now lists two packs that live in their own repositories: `minga-arena` and `minga-replica`. They install as `<name>@minga`. `tools/validate.mjs` accepts GitHub sources and checks that every such pack is documented in both READMEs and in the start skill's map.
 
 ## 1.1.0 — 2026-10-13
 

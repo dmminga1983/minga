@@ -109,12 +109,10 @@
 | Установка | Что делает | Репозиторий |
 |---|---|---|
 | `minga-arena@minga` | Турнир субагентов, когда ответ недостаточно хорош: 16 агентов, атака, защита, судья, остаётся один ответ | [minga-arena](https://github.com/dmminga1983/minga-arena) |
-| `minga-reels@minga` | Instagram Reels и YouTube Shorts на русском и английском: персонажи, оценка хуков, сценарии с таймингом, проверка подписей, разбор статистики | [minga-reels](https://github.com/dmminga1983/minga-reels) |
-| `minga-youtube@minga` | Длинные видео на YouTube: сценарии, название и превью, монтажный лист, главы, удержание, SEO | [minga-youtube](https://github.com/dmminga1983/minga-youtube) |
 | `minga-replica@minga` | Воссоздать приложение по принципу чистой комнаты и запустить как своё, для России и мира, App Store, Google Play и RuStore | [minga-replica](https://github.com/dmminga1983/minga-replica) |
 
 ```
-/plugin install minga-reels@minga
+/plugin install minga-arena@minga
 ```
 
 ## Сторож утечек
